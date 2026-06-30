@@ -1,0 +1,25 @@
+{
+  "name": "nexus-suno-discord-bot",
+  "version": "2.0.0",
+  "description": "A Suno-only Discord music bot with queues, DJ controls, playlists, radio mode and Windows VPS support.",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "deploy": "node src/deploy-commands.js",
+    "check": "node scripts/check-system.js"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.10.0",
+    "@discordjs/voice": "^0.18.0",
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.5.0",
+    "ffmpeg-static": "^5.3.0",
+    "kazagumo": "^3.4.3",
+    "libsodium-wrappers": "^0.7.16",
+    "node-opus": "^0.3.3",
+    "opusscript": "^0.0.8",
+    "shoukaku": "^4.3.0",
+    "undici": "^6.21.2"
+  }
+}
