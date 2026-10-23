@@ -1,0 +1,24 @@
+name: NEXUS Discord Release Announcements
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  discord-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Announce GitHub release
+        uses: SethCohen/github-releases-to-discord@v1
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          username: "NEXUS Release Bot"
+          color: "3447003"
+          content: "🚀 **NEW NEXUS RELEASE AVAILABLE!**"
+          footer_title: "NEXUS | GitHub Releases"
+          footer_timestamp: true
+          reduce_headings: true
+          max_description: 3500
