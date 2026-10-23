@@ -3,6 +3,19 @@ name: NEXUS Discord Release Announcements
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      release_name:
+        description: 'Release title to announce'
+        required: true
+        default: 'NEXUS Suno Discord Bot - Test Announcement'
+      release_body:
+        description: 'Release notes for manual test'
+        required: true
+        default: 'Testing the NEXUS Discord release webhook.'
+      release_html_url:
+        description: 'Optional release page URL'
+        required: false
 
 permissions:
   contents: read
@@ -15,6 +28,9 @@ jobs:
         uses: SethCohen/github-releases-to-discord@v1
         with:
           webhook_url: ${{ secrets.WEBHOOK_URL }}
+          release_name: ${{ inputs.release_name }}
+          release_body: ${{ inputs.release_body }}
+          release_html_url: ${{ inputs.release_html_url }}
           username: "NEXUS Release Bot"
           color: "3447003"
           content: "🚀 **NEW NEXUS RELEASE AVAILABLE!**"
